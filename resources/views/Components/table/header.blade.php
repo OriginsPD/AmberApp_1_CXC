@@ -1,0 +1,6 @@
+<thead>
+
+{{ $slot }}
+
+
+</thead>
