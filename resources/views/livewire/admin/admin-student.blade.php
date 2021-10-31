@@ -25,6 +25,13 @@
 
                     </div>
 
+                    <div class="relative p-3" wire:loading>
+
+                        <i class="fad fa-spinner-third text-blue-400"
+                           wire:loading.class="animate-spin"></i>
+
+                    </div>
+
                     <div class=" pl-3 pr-2 bg-white border-gray-500 border rounded-full flex justify-between items-center relative">
 
                         <input wire:model="search"  placeholder="Search"
@@ -98,7 +105,7 @@
 
                         <x-table.row>
 
-                            <x-table.data colspan="7" class="w-full text-center">
+                            <x-table.data colspan="5" class="w-full text-center">
 
                                 No Students Found
 

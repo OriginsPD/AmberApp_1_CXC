@@ -22,7 +22,8 @@
 
     <nav class="mt-10 flex flex-col space-y-2">
 
-        <x-navigation.adminLinks :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+        <x-navigation.adminLinks :href="route('admin.dashboard')"
+                                 :active="request()->routeIs('admin.dashboard')">
 
             <x-slot name="icon">
 
@@ -36,8 +37,8 @@
 
         </x-navigation.adminLinks>
 
-        <x-navigation.adminLinks
-                                 x-on:open-drop.window="firstDrop = true" :href="route('admin.student')" :active="request()->routeIs('admin.student')">
+        <x-navigation.adminLinks :href="route('admin.student')"
+                                 :active="request()->routeIs('admin.student')">
 
             <x-slot name="icon">
 
@@ -49,7 +50,8 @@
 
         </x-navigation.adminLinks>
 
-        <div x-show="firstDrop" x-transition.duration.300ms.origin.top
+        <div @if(request()->routeIs('admin.student')) x-show="firstDrop=true" @else x-show="firstDrop = false"  @endif
+             x-transition.duration.300ms.origin.top
             class=" p-3 space-y-1 -mt-8">
 
             <x-navigation.adminLinks wire:click.prevent="addStudent"
@@ -93,7 +95,7 @@
 
         </x-navigation.adminLinks>
 
-        <div x-show="secondDrop" x-transition.duration.300ms.origin.top
+        <div @if(request()->routeIs('admin.teacher')) x-show="secondDrop=true" @else x-show="secondDrop=false"  @endif
              class="p-3 -mt-6">
 
             <x-navigation.adminLinks wire:click.prevent="addTeacher" href="#">
@@ -123,7 +125,19 @@
 
         </x-navigation.adminLinks>
 
-        <x-navigation.adminLinks wire:click="logout" class="absolute cursor-pointer bg-none bottom-10" >
+            <x-navigation.adminLinks :href="route('admin.report')" :active="request()->routeIs('admin.report')">
+
+                <x-slot name="icon">
+
+                    <i class="fas fa-file-chart-line"></i>
+
+                </x-slot>
+
+                {{ __('Report') }}
+
+            </x-navigation.adminLinks>
+
+        <x-navigation.adminLinks wire:click="logout" class="absolute z-20 cursor-pointer bg-none bottom-10" >
 
             <x-slot name="icon">
 

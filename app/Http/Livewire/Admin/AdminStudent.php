@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Action\MailStudents;
 use App\Models\Students;
 use App\Models\Subject;
 use App\Models\SubjectChoice;
@@ -111,12 +112,17 @@ class AdminStudent extends Component
         $this->dispatchBrowserEvent('show-modal');
     }
 
-    public function statusChange(SubjectChoice $choice, $changeStatus): void
+    public function statusChange(SubjectChoice $choice, $changeStatus,
+                                 MailStudents  $mail): void
     {
         SubjectChoice::where('id', $choice->id)
             ->update([
                 'status' => $changeStatus
             ]);
+
+        if ($changeStatus) {
+            $mail->execute($choice);
+        }
 
         session()->flash('success', 'Student Updated Successfully');
 
@@ -141,6 +147,7 @@ class AdminStudent extends Component
 
     public function render()
     {
+
         return view('livewire.admin.admin-student', [
 
             'students' => Students::where('first_nm', 'like', '%' . $this->search . '%')

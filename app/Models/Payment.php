@@ -29,4 +29,9 @@ class Payment extends Model
     {
         return $this->belongsTo(Subject::class, 'subject_id');
     }
+
+    public function transactions(): BelongsTo
+    {
+        return $this->belongsTo(Transaction::class,'id');
+    }
 }

@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <div class="flex h-screen">
 
     <div class="flex w-3/12 h-screen bg-white ">
@@ -22,7 +21,7 @@
 
     </div>
 
-    <div class="w-9/12 bg-gray-200 p-2 overflow-auto">
+    <div class="w-9/12 bg-gray-200 overflow-auto">
 
         @yield('content')
 

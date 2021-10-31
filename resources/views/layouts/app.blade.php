@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/scroll.css') }}">
     @livewireStyles
 </head>
-<body>
+<body >
 
 @livewire('navigation.home-navi')
 

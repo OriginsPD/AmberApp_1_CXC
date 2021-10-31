@@ -28,7 +28,7 @@ class AdminNavi extends Component
     public $subjectAdd = false;
     public $teacherAdd = false;
 
-    protected $listeners =['open-drop' => 'render'];
+    protected $listeners = ['open-drop' => 'render'];
 
     protected $rules = [
         'first_nm' => 'required|string',
@@ -48,7 +48,7 @@ class AdminNavi extends Component
             'phone_nbr' => 'required|numeric'
         ]);
 
-        $id =  User::create([
+        $id = User::create([
             'username' => $this->first_nm . " " . $this->last_nm,
             'email' => $this->email,
             'isAdmin' => 3,
@@ -78,7 +78,7 @@ class AdminNavi extends Component
     {
         $this->validate();
 
-        $id =  User::create([
+        $id = User::create([
             'username' => $this->first_nm . " " . $this->last_nm,
             'email' => $this->email,
             'isAdmin' => 2,
@@ -161,7 +161,7 @@ class AdminNavi extends Component
     public function render()
     {
         $this->dispatchBrowserEvent('open-drop');
-        return view('livewire.navigation.admin-navi',[
+        return view('livewire.navigation.admin-navi', [
             'subjects' => Subject::all()
         ])
             ->extends('layouts.admin');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Action\MailTeachers;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Livewire\Component;
@@ -72,11 +73,18 @@ class AdminTeacher extends Component
 
     }
 
-    public function changeStatus(Teacher $teacher, $status)
+    public function changeStatus(Teacher $teacher,$status,
+                                 MailTeachers $mail)
     {
         Teacher::where('id',$teacher->id)->update([
             'status' => $status,
         ]);
+
+        if ($status){
+
+            $mail->execute($teacher);
+
+        }
 
         session()->flash('success', 'Teacher Status Changed');
 

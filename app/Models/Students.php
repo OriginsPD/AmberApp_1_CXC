@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Students extends Model
 {
@@ -22,18 +23,18 @@ class Students extends Model
         'gender',
     ];
 
-    public function subjectChoice(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function subjectChoice(): HasMany
     {
         return $this->hasMany(SubjectChoice::class, 'student_id')->with('subjects');
     }
 
-    public function payments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function payments(): HasMany
     {
-        return $this->hasMany(Payment::class,'student_id');
+        return $this->hasMany(Payment::class, 'student_id');
     }
 
-    public function transactions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function transactions(): HasMany
     {
-        return $this->hasMany(Transaction::class,'student_id');
+        return $this->hasMany(Transaction::class, 'student_id');
     }
 }

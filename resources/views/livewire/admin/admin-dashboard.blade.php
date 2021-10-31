@@ -8,49 +8,6 @@
 
     <x-alert.success :message="session('success')" />
 
-    <section class="text-gray-600 w-full">
-
-        <div class=" px-5 py-12 mx-auto">
-
-            <div class="flex flex-wrap -m-4 text-center">
-
-                <div class="p-4 sm:w-1/4 w-1/2">
-
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7K</h2>
-
-                    <p class="leading-relaxed">Students</p>
-
-                </div>
-
-                <div class="p-4 sm:w-1/4 w-1/2">
-
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">1.8K</h2>
-
-                    <p class="leading-relaxed">Teacher</p>
-
-                </div>
-
-                <div class="p-4 sm:w-1/4 w-1/2">
-
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">35</h2>
-
-                    <p class="leading-relaxed">Subjects</p>
-
-                </div>
-
-                <div class="p-4 sm:w-1/4 w-1/2">
-
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">4</h2>
-
-                    <p class="leading-relaxed">Products</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
 
     <div x-data="{ isOpen: false }"
          x-on:close-modal.window="isOpen = false"
@@ -58,13 +15,20 @@
 
         <div class="relative flex flex-col min-w-0 break-words bg-white p-3 w-full mb-6 shadow-lg rounded ">
 
-            <div class="rounded-t mb-0 px-4 py-3 border-0">
+            <div class="rounded-t mb-0 space-x-2 px-4 py-3 border-0">
 
                 <div class="flex flex-wrap items-center">
 
                     <div class="relative w-full px-4 max-w-full flex-grow flex-1">
 
                         <h3 class="font-semibold text-base text-blueGray-700">Student Choices</h3>
+
+                    </div>
+
+                    <div class="relative p-3" wire:loading>
+
+                        <i class="fad fa-spinner-third text-blue-400"
+                           wire:loading.class="animate-spin"></i>
 
                     </div>
 
