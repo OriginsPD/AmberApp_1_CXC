@@ -34,6 +34,8 @@ class TeacherPortal extends Component
                 session()->put('subject_id',$subject->subject_id);
 
                 session()->put('role', auth()->user()->isAdmin);
+
+                return back();
             }
 
             $this->addError('email', 'Teacher To Be Approved Please Contact Admin');
@@ -44,7 +46,7 @@ class TeacherPortal extends Component
 
             session()->regenerateToken();
 
-            return back();
+            $this->redirect(route('teacher.dashboard'));
 
         }
 

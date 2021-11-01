@@ -141,7 +141,7 @@
 
             <x-slot name="icon">
 
-                <i class="far fa-credit-card"></i>
+                <i class="fad fa-sign-out-alt text-2xl"></i>
 
             </x-slot>
 

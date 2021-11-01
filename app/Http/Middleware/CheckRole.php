@@ -21,20 +21,30 @@ class CheckRole
     {
         $roles = $this->getRoles();
 
-        if (session()->has('role') && in_array(session('role'), $roles, true)) {
+        if (session()->has('role')){
+
+        if (in_array(session('role'), $roles, true)) {
 //            if (session('role') === 2) {
 //
 //                return response()->view('livewire.admin.admin-index');
 //            }
 //
+
+
             if (session('role') === 2) {
-                response()->redirectToRoute('teacher.dashboard');
+                return redirect()->route('teacher.dashboard');
             }
 
             if (session('role') === 1) {
-                 response()->redirectToRoute('admin.dashboard');
+                return redirect()->route('admin.dashboard');
             }
         }
+
+
+
+        }
+
+
         return $next($request);
     }
 
