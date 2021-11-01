@@ -1,13 +1,13 @@
 <header
-        class="text-gray-600 sticky top-0 z-20 bg-gradient-to-l from-blue-400 to-blue-600  body-font">
+        class="text-gray-600 absolute top-0 z-20 bg-transparent  body-font">
 
     <div class=" mx-auto flex flex-wrap px-4 py-2 flex-col md:flex-row items-center">
 
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <a href="{{ route('index') }}" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
 
-            <span class="ml-4 font-extrabold italic text-white text-6xl">
+            <span class="ml-4 font-extrabold italic text-white text-xl">
 
-                <span class="uppercase text-orange-500">
+                <span class="uppercase">
                     Amber</span>CXC</span>
 
         </a>

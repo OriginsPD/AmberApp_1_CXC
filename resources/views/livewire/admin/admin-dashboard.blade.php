@@ -8,7 +8,6 @@
 
     <x-alert.success :message="session('success')" />
 
-
     <div x-data="{ isOpen: false }"
          x-on:close-modal.window="isOpen = false"
          class="px-4 mx-auto w-full sm:px-6 md:px-8">

@@ -7,7 +7,9 @@ use App\Http\Livewire\Admin\AdminReport;
 use App\Http\Livewire\Admin\AdminStudent;
 use App\Http\Livewire\Admin\AdminTeacher;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Auth\TeacherPortal;
 use App\Http\Livewire\Home\Homepage;
+use App\Http\Livewire\Teacher\TeacherIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,11 +23,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['checkRoles'])->group(function () {
 
     Route::get('/', Homepage::class)->name('index');
 
-    Route::get('/teacher/portal', Register::class)->name('register');
+    Route::get('/teacher/portal', TeacherPortal::class)->name('register');
 
     Route::get('/Admin/dashboard', AdminDashboard::class)->name('admin.dashboard');
     Route::get('/Admin/student', AdminStudent::class)->name('admin.student');
@@ -33,4 +34,7 @@ Route::middleware(['checkRoles'])->group(function () {
     Route::get('/Admin/payment', AdminPayment::class)->name('admin.payment');
     Route::get('/Admin/report', AdminReport::class)->name('admin.report');
 
-});
+    Route::get('/Teacher/dashboard', TeacherIndex::class)
+        ->name('teacher.dashboard');
+
+

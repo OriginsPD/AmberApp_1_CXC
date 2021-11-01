@@ -3,7 +3,7 @@
     'label',
 ])
 
-<label class="font-semibold text-xs"
+<label {{ $attributes->merge(['class' => 'font-semibold text-xs']) }}
        {{ $for }}>
     {{ $label }}
 

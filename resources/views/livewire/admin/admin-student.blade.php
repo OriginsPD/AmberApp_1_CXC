@@ -34,8 +34,10 @@
 
                     <div class=" pl-3 pr-2 bg-white border-gray-500 border rounded-full flex justify-between items-center relative">
 
-                        <input wire:model="search"  placeholder="Search"
-                               class="h-10 appearance-none w-full outline-none focus:outline-none active:outline-none"/>
+                        <label>
+                            <input wire:model="search"  placeholder="Search"
+                                   class="h-10 appearance-none w-full outline-none focus:outline-none active:outline-none"/>
+                        </label>
 
                         <div class="ml-1 outline-none focus:outline-none active:outline-none">
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

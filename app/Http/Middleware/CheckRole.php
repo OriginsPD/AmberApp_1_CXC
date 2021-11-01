@@ -27,9 +27,9 @@ class CheckRole
 //                return response()->view('livewire.admin.admin-index');
 //            }
 //
-//            if (session('role') === 3) {
-//                return redirect()->route('/');
-//            }
+            if (session('role') === 2) {
+                response()->redirectToRoute('teacher.dashboard');
+            }
 
             if (session('role') === 1) {
                  response()->redirectToRoute('admin.dashboard');
